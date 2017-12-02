@@ -3,8 +3,8 @@
 (def debug? ^boolean goog.DEBUG)
 
 (def api-endpoint (if debug?
-                    "http://localhost:4000"
-                    "https://conduit.productionready.io/api"))
+                    "http://localhost:5000"
+                    "http://apps.mmmanyfold.com:5000"))
 
 (def articles-per-page 10)
 (def jwt-local-storage-name "conduit-jwt-token")
