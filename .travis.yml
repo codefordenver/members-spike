@@ -5,6 +5,7 @@ language: clojure
 lein: 2.5.3
 sudo: true
 script: "lein cljsbuild once min"
+before_deploy: "cd resources/public"
 
 deploy:
   provider: s3
