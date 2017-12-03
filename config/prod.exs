@@ -16,6 +16,7 @@ use Mix.Config
 config :real_world, RealWorldWeb.Endpoint,
   on_init: {RealWorldWeb.Endpoint, :load_from_system_env, []},
   url: [host: "example.com", port: 80],
+  http: [port: 5000],
   server: true,
   code_reloader: false
 # cache_static_manifest: "priv/static/cache_manifest.json"
