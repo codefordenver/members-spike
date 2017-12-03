@@ -1,8 +1,11 @@
+
+before_install: cd client
+
 language: clojure
 lein: 2.5.3
 sudo: true
-script: "cd client && lein cljsbuild once min"
-before_deploy: "cd client && resources/public"
+script: "lein cljsbuild once min"
+before_deploy: "resources/public"
 
 deploy:
   provider: s3
