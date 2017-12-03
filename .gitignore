@@ -27,3 +27,5 @@ docker-compose.yml
 #System Files
 .DS_Store
 Thumbs.db
+.deliver/releases/
+.deliver/releases/
