@@ -1,18 +1,13 @@
-language: elixir
+language: clojure
+lein: 2.5.3
+sudo: true
+script: "cd client && lein cljsbuild once min"
+before_deploy: "cd client && resources/public"
 
-sudo: required
-dist: trusty
-
-elixir:
-  - 1.5
-
-addons:
-    postgresql: "9.6"
-services:
-    - postgresql
-
-env:
-  - MIX_ENV=test
-
-script:
-  - mix test && mix coveralls.travis
+deploy:
+  provider: s3
+  access_key_id: ${AWS_ACCESS_KEY_ID}
+  secret_access_key: ${AWS_SECRET_ACCESS_KEY}
+  bucket: "codefordenver.org"
+  skip_cleanup: true
+  region: us-west-2
