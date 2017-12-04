@@ -12,12 +12,12 @@
      (when current-user
        [:li.nav-item
         [:a.nav-link
-         {:href (ui/url ctx {:page "home" :subpage "personal"})
+         {:href  (ui/url ctx {:page "home" :subpage "personal"})
           :class (class-names {:active (= "personal" current-tab)})}
          "Your Feed"]])
      [:li.nav-item
       [:a.nav-link
-       {:href (ui/url ctx {:page "home"})
+       {:href  (ui/url ctx {:page "home"})
         :class (class-names {:active (and (nil? current-tab) (not current-tag))})}
        "Global Feed"]]
      (when current-tag
@@ -35,19 +35,20 @@
 
 (defn render [ctx]
   [:div.home-page
-   [:div.banner>div.container
-    [:h1.logo-font "conduit"]
-    [:p "A place to share your knowledge."]]
+   [:div.banner {:style {:background-color "#e24e54"}}
+    [:div.container
+     [:h1.logo-font "Code For Denver"]
+     [:p "Volunteer-driven, community outreach that improves people’s lives through technology."]]]
    [:div.container.page>div.row
-    [:div.col-md-9 
+    [:div.col-md-9
      [render-tabs ctx]
-     [(ui/component ctx :articles)]
-     ]
+     [(ui/component ctx :articles)]]
+
     [:div.col-md-3>div.sidebar
      [:p "Popular Tags"]
      [render-taglist ctx]]]])
 
 (def component
-  (ui/constructor {:renderer render
-                   :component-deps [:articles]
+  (ui/constructor {:renderer          render
+                   :component-deps    [:articles]
                    :subscription-deps [:tags :current-user]}))

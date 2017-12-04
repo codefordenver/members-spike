@@ -7,4 +7,4 @@
                     "http://apps.mmmanyfold.com:5000"))
 
 (def articles-per-page 10)
-(def jwt-local-storage-name "conduit-jwt-token")
+(def jwt-local-storage-name "cfd-jwt-token")

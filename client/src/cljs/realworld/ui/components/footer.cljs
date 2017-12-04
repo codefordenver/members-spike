@@ -4,7 +4,7 @@
 (defn render [ctx]
   [:footer
    [:div.container
-    [:a.logo-font {:href (ui/url ctx {:page "home"})} "conduit"]
+    [:a.logo-font {:href (ui/url ctx {:page "home"})} "Code For Denver"]
     [:span.attribution
      "An interactive learning project "
      [:a {:href "https://thinkster.io"} "Thinkster"]

@@ -7,10 +7,10 @@
   [{:route {:page "home"}
     :title "Home"}
    {:route {:page "editor"}
-    :icon "ion-compose"
+    :icon  "ion-compose"
     :title "New Post"}
    {:route {:page "settings"}
-    :icon "ion-gear-a"
+    :icon  "ion-gear-a"
     :title "Settings"}])
 
 (def anon-pages
@@ -25,7 +25,7 @@
   (let [current-page (:page (route> ctx))]
     [:li.nav-item {:key title}
      [:a.nav-link
-      {:href (ui/url ctx route)
+      {:href  (ui/url ctx route)
        :class (class-names {:active (= current-page (:page route))})}
       (when icon
         [:i {:class icon}])
@@ -47,9 +47,10 @@
         home-route (if current-user {:page "home" :subpage "personal"} {:page "home"})]
     [:nav.navbar.navbar-light
      [:div.container
-      [:a.navbar-brand {:href (ui/url ctx home-route)} "conduit"]
+      [:a.navbar-brand {:style {:color "#000075"}
+                        :href  (ui/url ctx home-route)} "Code For Denver"]
       [render-nav ctx]]]))
 
 (def component
-  (ui/constructor {:renderer render
+  (ui/constructor {:renderer          render
                    :subscription-deps [:current-user :current-user-meta]}))

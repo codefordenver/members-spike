@@ -45,7 +45,7 @@
 
 (def jwt-datasource
   {:target [:kv :jwt]
-   :loader (map-loader #(get-item local-storage "conduit-jwt-token"))
+   :loader (map-loader #(get-item local-storage "cfd-jwt-token"))
    :params (fn [prev _ _]
              (when (:data prev) ignore-datasource-check))})
 

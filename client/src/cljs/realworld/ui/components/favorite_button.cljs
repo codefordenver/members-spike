@@ -20,8 +20,8 @@
       [:i.ion-heart] " "
       (if (= :small size)
         fav-count
-        (str (if favorited? "Unfavorite" "Favorite") " Post (" fav-count ")"))]
-       )))
+        (str (if favorited? "Unfavorite" "Favorite") " Post (" fav-count ")"))])))
+
 
 (def component
   (ui/constructor {:renderer render
