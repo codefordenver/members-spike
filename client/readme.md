@@ -24,3 +24,15 @@ Make sure you have [leiningen](https://leiningen.org/) installed
 Run:
 
 > lein figwheel dev
+
+Install the SASSC compiler:
+
+> brew install sassc
+
+To automatically recompile css:
+
+> lein auto sassc once
+
+To compile css once:
+
+> lein sassc once
