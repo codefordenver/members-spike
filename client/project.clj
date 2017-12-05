@@ -13,7 +13,9 @@
 
   :source-paths ["src/clj"]
 
-  :plugins [[lein-cljsbuild "1.1.4"]]
+  :plugins [[lein-cljsbuild "1.1.4"]
+            [lein-sassc "0.10.4"]
+            [lein-auto "0.1.2"]]
 
   :clean-targets ^{:protect false} ["resources/public/js"
                                     "target"
@@ -21,13 +23,21 @@
 
   :figwheel {:css-dirs ["resources/public/css"]}
 
+  :sassc [{:src "resources/scss/main.scss"
+           :output-to "resources/public/css/main.css"
+           :style "nested"
+           :import-path "resources/scss"}]
+
+  :auto {"sassc"  {:file-pattern  #"\.(scss)$"
+                   :paths ["resources/scss"]}}
+
   :profiles
   {:dev
    {:dependencies []
 
     :plugins      [[lein-figwheel "0.5.10"]
-                   [lein-doo "0.1.7"]]
-    }}
+                   [lein-doo "0.1.7"]]}}
+
 
   :cljsbuild
   {:builds
@@ -56,5 +66,4 @@
      :compiler     {:output-to     "resources/public/js/test.js"
                     :output-dir    "resources/public/js/test"
                     :main          realworld.runner
-                    :optimizations :none}}
-    ]})
+                    :optimizations :none}}]})
